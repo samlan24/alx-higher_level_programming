@@ -4,5 +4,4 @@
 
 def copy_list(my_list):
     """copy of a list"""
-    new_list = my_list[:]
-    return new_list
+    return my_list[:]
