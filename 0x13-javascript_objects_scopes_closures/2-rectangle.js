@@ -1,6 +1,6 @@
 #!/usr/bin/node
 /**
- * checks parameters
+ * checks parameters provided
  */
 class Rectangle {
   constructor (w, h) {
@@ -11,4 +11,3 @@ class Rectangle {
   }
 }
 module.exports = Rectangle;
-
