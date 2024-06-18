@@ -1,10 +1,10 @@
 #!/usr/bin/node
 /**
- * prints the rectangle using the character X
+ * Check the parameters provided
  */
 class Rectangle {
   constructor (w, h) {
-    if (Number.isInteger(w) && w > 0 && Number.isInteger(h) && h > 0) {
+    if (typeof w === 'number' && w > 0 && typeof h === 'number' && h > 0) {
       this.width = w;
       this.height = h;
     }
@@ -12,7 +12,14 @@ class Rectangle {
 
   print () {
     for (let i = 0; i < this.height; i++) {
-      console.log('X'.repeat(this.width));
+      let myVar = '';
+      let y = 0;
+      while (y < this.width) {
+        myVar += 'X';
+        y++;
+      }
+
+      console.log(myVar);
     }
   }
 }
