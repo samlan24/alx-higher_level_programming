@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 
 """
-python file that contains the
-class definition of a State and an
-instance Base = declarative_base()
+Script that lists all State objects from the database
+Using module SQLAlchemy
 """
 
 from sqlalchemy import create_engine
@@ -18,12 +17,16 @@ if __name__ == "__main__":
     db_passwd = argv[2]
     db_name = argv[3]
 
+    # creating engine
     db_url = f'mysql+pymysql://{db_user}:{db_passwd}@localhost/{db_name}'
     engine = create_engine(db_url)
 
+    # a sessionmaker to manage sessions
     Session = sessionmaker(bind=engine)
+    # this is a session object
     session = Session()
     Base.metadata.create_all(engine)
     all_states = session.query(State).order_by(State.id).all()
     for a_state in all_states:
         print(f"{a_state.id}: {a_state.name}")
+    session.close()
