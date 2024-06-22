@@ -17,7 +17,7 @@ if __name__ == "__main__":
     db_name = argv[3]
 
     # creating engine
-    db_url = f'mysql+pymysql://{db_user}:{db_passwd}@localhost/{db_name}'
+    db_url = f'mysql+pymysql://{db_user}:{db_passwd}@localhost:3306/{db_name}'
     engine = create_engine(db_url)
 
     # a sessionmaker to manage sessions
