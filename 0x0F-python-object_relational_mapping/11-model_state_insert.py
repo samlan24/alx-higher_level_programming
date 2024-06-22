@@ -26,7 +26,7 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
 
     # adding state
-    state_to_add = State(name=state_name)
+    state_to_add = State(name="Louisiana")
     session.add(state_to_add)
 
     # commit changes
