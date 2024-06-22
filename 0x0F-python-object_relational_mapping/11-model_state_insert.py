@@ -13,7 +13,6 @@ from model_state import Base, State
 
 if __name__ == "__main__":
 
-    state_name = argv[4]
     # creating engine
     db_url = "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
         argv[1], argv[2], argv[3])
