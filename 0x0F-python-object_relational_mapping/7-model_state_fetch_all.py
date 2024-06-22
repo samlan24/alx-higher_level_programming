@@ -12,12 +12,9 @@ from model_state import Base, State
 
 if __name__ == "__main__":
 
-    db_user = argv[1]
-    db_passwd = argv[2]
-    db_name = argv[3]
-
     # creating engine
-    db_url = f'mysql+pymysql://{db_user}:{db_passwd}@localhost:3306/{db_name}'
+    db_url = "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
+        argv[1], argv[2], argv[3])
     engine = create_engine(db_url)
 
     # a sessionmaker to manage sessions
