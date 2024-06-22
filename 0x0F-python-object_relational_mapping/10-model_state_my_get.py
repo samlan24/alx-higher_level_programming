@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-Script that prints name of state
+Script that prints the id of state
 entered as an argument
 """
 
@@ -16,7 +16,7 @@ if __name__ == "__main__":
     state_name = argv[4]
 
     # creating engine
-    db_url = "mysql+pymysql://{}:{}@localhost:3306/{}".format(
+    db_url = "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
         argv[1], argv[2], argv[3])
     engine = create_engine(db_url)
 
@@ -26,10 +26,10 @@ if __name__ == "__main__":
     session = Session()
     Base.metadata.create_all(engine)
 
-    # prints states with a letter
+    # prints states id
     state = session.query(State).filter(State.name == state_name).first()
     if state:
-        print(f"{state.name}")
+        print(f"{state.id}")
     else:
         print("Not found")
     session.close()
