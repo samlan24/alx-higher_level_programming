@@ -6,7 +6,6 @@ Using module SQLAlchemy
 """
 
 from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sys import argv
 from model_state import Base, State
@@ -26,6 +25,7 @@ if __name__ == "__main__":
     # this is a session object
     session = Session()
     Base.metadata.create_all(engine)
+
     all_states = session.query(State).order_by(State.id).all()
     for a_state in all_states:
         print(f"{a_state.id}: {a_state.name}")
